@@ -1,0 +1,31 @@
+{% extends '_layouts/base.njk' %}
+
+{% block page_title %}Queen{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <h1>Queen</h1>
+    <p class="member"> {% for member in members %}
+      <a href="{{ member.link }}" target="_blank">{{ member.name }}</a>{% if not loop.last %}{% if loop.revindex0 == 1 %} and {% else %}, {% endif %}{% endif %} {% endfor %}
+    </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <p>
+      Queen, the famed British glam-rock band, reached the top of U.S. and U.K. charts with songs like "Killer Queen," "Bohemian Rhapsody," "We Will Rock You" and "Another One Bites the Dust." Explore this group to learn more about the popular foursome, including Freddie Mercury, Brian May, John Deacon and Roger Taylor.
+    </p>
+      <ul> 
+        {% for member in members %}
+          <li>{{ member }}, {{ instruments }}</li>
+        {% else %}
+          <li>This would display if the 'books' collection were empty</li>
+        {% endfor %}
+     </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
